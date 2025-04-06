@@ -1,0 +1,33 @@
+.login-container{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    gap: 20px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 247, 255, 0.921);
+}
+
+.headTitle{
+    font-size: 40px;
+    color: black;
+    font-weight: bold;
+    place-self: center;
+}
+
+input {
+    background-color: #ceceff;  /* Dark background */
+    color: black;
+    border-width: 1px;
+    border-radius:10px;
+    border-color: black;
+    padding: 10px;
+    outline: none;
+    font-size: 16px;
+}
+
+input::placeholder{
+    color: rgba(0, 0, 0, 0.5);
+}
