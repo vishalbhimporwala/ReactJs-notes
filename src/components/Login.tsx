@@ -3,6 +3,7 @@ import "./Login.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const baseURL = import.meta.env.VITE_BASE_URL;
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -24,10 +25,8 @@ const Login: React.FC = () => {
         : { userName: email, password: password };
 
       console.log("Login param : " + JSON.stringify(param));
-      const response = await axios.post(
-        "http://192.168.97.32:3020/api/v1/user/login",
-        param
-      );
+      console.log("base url : " + baseURL);
+      const response = await axios.post(`${baseURL}/user/login`, param);
       console.log("response value : " + JSON.stringify(response));
       if (response.data.success) {
         navigate("/dashboard"); // 👈 navigate on success
