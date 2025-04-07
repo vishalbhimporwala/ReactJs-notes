@@ -1,54 +1,109 @@
-# React + TypeScript + Vite
+# 📝 Notes Dashboard - React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple notes dashboard web application built using **React.js**, **TypeScript**, and **Axios**. It supports user authentication and CRUD operations for notes (create, fetch, delete).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🔐 User Authentication using JWT tokens
+- 📥 Fetch notes from a backend API
+- ➕ Add new notes
+- ❌ Delete notes
+- 📦 Axios for API communication
+- 💅 Styled with custom CSS
+- ⚙️ Environment-based API configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- React.js (with TypeScript)
+- Axios
+- Custom CSS
+- Vite (optional, if used)
+- Node.js backend (for API, assumed)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 📁 Project Structure
+
+\`\`\`
+src/
+├── components/
+│ └── AuthContext.tsx
+│ └── PrivateRoute.tsx
+│ └── PublicRoute.tsx
+├── pages/
+│ └── Login.tsx
+│ └── Dashboard.tsx
+├── styles/
+│ └── Dashboard.css
+│ └── Login.css
+├── App.tsx
+├── main.tsx
+└── ...
+\`\`\`
+
+---
+
+## ⚙️ Environment Variables
+
+Make sure to set up the `.env` file in your project root:
+
+\`\`\`env
+VITE_BASE_URL=http://localhost:5000/api
+\`\`\`
+
+---
+
+## 🛠️ Installation
+
+1. **Clone the repo**
+
+\`\`\`bash
+git clone https://github.com/your-username/notes-dashboard.git
+cd notes-dashboard
+\`\`\`
+
+2. **Install dependencies**
+
+\`\`\`bash
+npm install
+\`\`\`
+
+3. **Start the development server**
+
+\`\`\`bash
+npm run dev
+\`\`\`
+
+---
+
+## 📸 Screenshots
+
+![Login Screenshot](public/screenshot_login.png)
+![Dashboard Screenshot](public/screenshot_add_notes.png)
+![Notes List Screenshot](public/screenshot_notelist.png)
+
+---
+
+## 📦 API Endpoints (Assumed)
+
+| Method | Endpoint             | Description         |
+| ------ | -------------------- | ------------------- |
+| GET    | \`/note/fetch\`      | Fetch all notes     |
+| POST   | \`/note/create\`     | Create a new note   |
+| DELETE | \`/note/delete/:id\` | Delete a note by ID |
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+Developed by [Vishal Bhimporwala](https://github.com/vishalbhimporwala) ✨

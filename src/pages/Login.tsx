@@ -1,8 +1,8 @@
 import axios from "axios";
-import "./Login.css";
 import { useState, useEffect, use } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../components/AuthContext";
+import "../styles/Login.css";
 
 const baseURL = import.meta.env.VITE_BASE_URL;
 const Login: React.FC = () => {

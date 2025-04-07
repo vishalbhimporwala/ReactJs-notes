@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import { useAuth } from "../AuthContext";
-import "./Dashboard.css";
+import { useAuth } from "../components/AuthContext";
+import "../styles/Dashboard.css";
 
 interface Note {
   _id: string;
