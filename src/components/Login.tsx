@@ -1,7 +1,8 @@
 import axios from "axios";
 import "./Login.css";
-import { useState } from "react";
+import { useState, useEffect, use } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 
 const baseURL = import.meta.env.VITE_BASE_URL;
 const Login: React.FC = () => {
@@ -10,6 +11,24 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const { login, user } = useAuth();
+  const [checkingLogin, setCheckingLogin] = useState(true); // ✅ Prevents blink
+
+  // useEffect(() => {
+  //   const user = JSON.parse(localStorage.getItem("user") || "{}");
+  //   console.log("userEffect : " + JSON.stringify(user));
+  //   if (user.firstName) {
+  //     navigate("/dashboard");
+  //   }
+  // }, [navigate]);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard");
+    } else {
+      setCheckingLogin(false); // ✅ Now show login form
+    }
+  }, [user]);
 
   const handleLoginClick = async () => {
     if (!email || !password) {
@@ -25,10 +44,13 @@ const Login: React.FC = () => {
         : { userName: email, password: password };
 
       console.log("Login param : " + JSON.stringify(param));
-      console.log("base url : " + baseURL);
+      // console.log("base url : " + baseURL);
       const response = await axios.post(`${baseURL}/user/login`, param);
-      console.log("response value : " + JSON.stringify(response));
+      // console.log("response value : " + JSON.stringify(response));
       if (response.data.success) {
+        const user = response.data.data;
+        user.accessToken = response.headers["accesstoken"]; // ✅ Add token to user object
+        login(response.data.data); // save in context + localStorage
         navigate("/dashboard"); // 👈 navigate on success
       }
     } catch (error) {
@@ -38,6 +60,10 @@ const Login: React.FC = () => {
       setLoading(false);
     }
   };
+
+  if (checkingLogin) {
+    return null; // Or a spinner if you like
+  }
 
   return (
     <div className="login-container">

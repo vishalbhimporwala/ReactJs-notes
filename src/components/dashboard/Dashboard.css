@@ -1,0 +1,109 @@
+/* Dashboard.css */
+
+.dashboard-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-family: sans-serif;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .logout-button {
+    padding: 0.5rem 1rem;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: #c0392b;
+  }
+  
+  p{
+    color: white;
+  }
+
+  .add-note-form {
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+  
+  .add-note-form input,
+  .add-note-form textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .add-note-form button {
+    padding: 0.5rem 1rem;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-note-form button:hover {
+    background-color: #2980b9;
+  }
+  
+  .notes-list {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: #fafafa;
+  }
+  
+  .note-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: box-shadow 0.2s;
+  }
+  
+  .note-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-text {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .note-card h4 {
+    margin: 0;
+    color: #320052;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .note-card p {
+    margin-top: 6px;
+    color: black;
+    font-weight: 500;
+  }
+  
